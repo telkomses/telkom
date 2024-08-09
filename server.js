@@ -146,6 +146,16 @@ app.get('/program', (req, res) => {
   });
 });
 
+app.get('/programs', (req, res) => {
+  const sql = 'SELECT id, program FROM program';
+  db.query(sql, (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.json(results);
+  });
+});
+
 app.get('/ket-klarifikasi', (req, res) => {
   const query = 'SELECT id, ket_klarifikasi FROM ket_klarifikasi';
   db.query(query, (err, results) => {
@@ -253,6 +263,214 @@ app.post('/ket-klarifikasi', (req, res) => {
   db.query(query, [ket_klarifikasi], (err) => {
     if (err) throw err;
     res.send('Ket Klarifikasi added successfully');
+  });
+});
+
+app.get('/count-programs', (req, res) => {
+  const query = `
+    SELECT p.program, COUNT(s.program) AS count
+    FROM program p
+    LEFT JOIN submissions s ON p.program = s.program
+    GROUP BY p.program
+  `;
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error counting program:', err);
+      return res.status(500).send('Error counting program');
+    }
+    res.send(results);
+  });
+});
+
+app.get('/count-unit-bisnis', (req, res) => {
+  const query = `
+    SELECT u.unit_bisnis, COUNT(s.unitBisnis) AS count
+    FROM unit_bisnis u
+    LEFT JOIN submissions s ON u.unit_bisnis = s.unitBisnis
+    GROUP BY u.unit_bisnis
+  `;
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error counting program:', err);
+      return res.status(500).send('Error counting program');
+    }
+    res.send(results);
+  });
+});
+
+// Endpoint untuk mengedit data ket_klarifikasi berdasarkan ID
+app.put('/ket-klarifikasi/:id', (req, res) => {
+  const { id } = req.params;
+  const { ket_klarifikasi } = req.body;
+  
+  const sql = 'UPDATE ket_klarifikasi SET ket_klarifikasi = ? WHERE id = ?';
+  db.query(sql, [ket_klarifikasi, id], (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: 'Data tidak ditemukan' });
+    }
+    res.json({ message: 'Data berhasil diupdate' });
+  });
+});
+
+// Endpoint untuk menambah data program
+app.post('/programs', (req, res) => {
+  const { program } = req.body;
+  
+  const sql = 'INSERT INTO program (program) VALUES (?)';
+  db.query(sql, [program], (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    const newProgram = { id: result.insertId, program };
+    res.status(201).json(newProgram);
+  });
+});
+
+// Endpoint untuk menghapus data program berdasarkan ID
+app.delete('/programs/:id', (req, res) => {
+  const { id } = req.params;
+  
+  const sql = 'DELETE FROM program WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: 'Data tidak ditemukan' });
+    }
+    res.json({ message: 'Data berhasil dihapus' });
+  });
+});
+
+// Endpoint untuk mengedit data program berdasarkan ID
+app.put('/programs/:id', (req, res) => {
+  const { id } = req.params;
+  const { program } = req.body;
+  
+  const sql = 'UPDATE program SET program = ? WHERE id = ?';
+  db.query(sql, [program, id], (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: 'Data tidak ditemukan' });
+    }
+    res.json({ message: 'Data berhasil diupdate' });
+  });
+});
+
+
+// Endpoint untuk menambah data unit bisnis
+app.post('/unit-bisnis', (req, res) => {
+  const { unit_bisnis } = req.body;
+  
+  const sql = 'INSERT INTO unit_bisnis (unit_bisnis) VALUES (?)';
+  db.query(sql, [unit_bisnis], (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    const newUnitBisnis = { id: result.insertId, unit_bisnis };
+    res.status(201).json(newUnitBisnis);
+  });
+});
+
+// Endpoint untuk mengedit data unit bisnis berdasarkan ID
+app.put('/unit-bisnis/:id', (req, res) => {
+  const { id } = req.params;
+  const { unit_bisnis } = req.body;
+  
+  const sql = 'UPDATE unit_bisnis SET unit_bisnis = ? WHERE id = ?';
+  db.query(sql, [unit_bisnis, id], (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: 'Data tidak ditemukan' });
+    }
+    res.json({ message: 'Data berhasil diupdate' });
+  });
+});
+
+// Endpoint untuk menghapus data unit bisnis berdasarkan ID
+app.delete('/unit-bisnis/:id', (req, res) => {
+  const { id } = req.params;
+  
+  const sql = 'DELETE FROM unit_bisnis WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: 'Data tidak ditemukan' });
+    }
+    res.json({ message: 'Data berhasil dihapus' });
+  });
+});
+
+// Endpoint untuk menambah data vendor
+app.post('/vendors', (req, res) => {
+  const { vendor } = req.body;
+  
+  const sql = 'INSERT INTO vendors (vendor) VALUES (?)';
+  db.query(sql, [vendor], (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    const newVendor = { id: result.insertId, vendor };
+    res.status(201).json(newVendor);
+  });
+});
+
+// Endpoint untuk mengedit data vendor berdasarkan ID
+app.put('/vendors/:id', (req, res) => {
+  const { id } = req.params;
+  const { vendor } = req.body;
+  
+  const sql = 'UPDATE vendors SET vendor = ? WHERE id = ?';
+  db.query(sql, [vendor, id], (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: 'Data tidak ditemukan' });
+    }
+    res.json({ message: 'Data berhasil diupdate' });
+  });
+});
+
+// Endpoint untuk menghapus data vendor berdasarkan ID
+app.delete('/vendors/:id', (req, res) => {
+  const { id } = req.params;
+  
+  const sql = 'DELETE FROM vendors WHERE id = ?';
+  db.query(sql, [id], (err, result) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: 'Data tidak ditemukan' });
+    }
+    res.json({ message: 'Data berhasil dihapus' });
+  });
+});
+
+
+app.get('/vendor-counts', (req, res) => {
+  const query = `
+    SELECT v.vendor, COUNT(u.vendor) AS count
+    FROM vendor v
+    LEFT JOIN users u ON v.vendor = u.vendor
+    GROUP BY v.vendor
+  `;
+  db.query(query, (err, results) => {
+    if (err) {
+      console.error('Error counting vendor:', err);
+      return res.status(500).send('Error counting vendor');
+    }
+    res.send(results);
   });
 });
 
