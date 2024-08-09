@@ -1,0 +1,65 @@
+/* src/components/DataKetKlarifikasi.css */
+
+.data-ket-klarifikasi {
+  padding: 20px;
+}
+
+.ket-klarifikasi-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ket-klarifikasi-table th,
+.ket-klarifikasi-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.ket-klarifikasi-table th {
+  background-color: #ff0000;
+}
+
+.ket-klarifikasi-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.ket-klarifikasi-table tr:hover {
+  background-color: #ddd;
+}
+
+.data-ket-klarifikasi-form {
+  margin-bottom: 20px;
+}
+
+.data-ket-klarifikasi-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.data-ket-klarifikasi-form input {
+  margin-right: 10px;
+  padding: 8px;
+  border: 1px solid #ddd;
+}
+
+.data-ket-klarifikasi-form button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.data-ket-klarifikasi-form button:hover {
+  background-color: #0056b3;
+}
+
+.data-ket-klarifikasi-form button.cancel {
+  background-color: #6c757d;
+}
+
+.data-ket-klarifikasi-form button.cancel:hover {
+  background-color: #5a6268;
+}

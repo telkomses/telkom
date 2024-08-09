@@ -1,0 +1,121 @@
+.data-program {
+  padding: 20px;
+}
+
+.program-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.program-table th,
+.program-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.program-table th {
+  background-color: #ff0000;
+  text-align: left;
+}
+
+.program-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.program-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.add-program-button,
+.edit-button,
+.delete-button {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.add-program-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.add-program-button:hover {
+  background-color: #45a049;
+}
+
+.edit-button {
+  background-color: #FFA500;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #FF8C00;
+}
+
+.delete-button {
+  background-color: #FF0000;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #CC0000;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #000;
+  text-align: left;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 100%;
+}

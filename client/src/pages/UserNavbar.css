@@ -1,0 +1,179 @@
+/* Reset default styles */
+body, h1, h2, h3, h4, h5, h6, p, a, img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #ffffff, #ffffff);
+  padding: 15px 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-logo {
+  height: 50px;
+  cursor: pointer;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar-menu a {
+  color: rgb(0, 0, 0);
+  font-size: 1.1em;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar-menu a:hover {
+  background: rgba(255, 3, 3, 0.2);
+  color: #ff4f4f;
+}
+
+.navbar-dropdown-menu {
+  position: relative;
+}
+
+.navbar-dropdown-menu:hover .navbar-dropdown {
+  display: block;
+  align-items: center;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbar-menu-button {
+  color: rgb(0, 0, 0);
+  font-size: 1.1em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar-menu-button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ff4f4f;
+}
+
+.navbar-dropdown {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: white;
+  color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1001;
+  min-width: 250px;
+  display: none;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s, transform 0.3s;
+  align-items: center;
+}
+
+.navbar-profile {
+  position: relative;
+  display: inline-block;
+}
+
+.navbar-profile-button {
+  background: none;
+  border: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navbar-profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #f0f0f0; /* Background color for the circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.navbar-profile-pic svg {
+  width: 24px;
+  height: 24px;
+}
+
+.navbar-dropdown svg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #f0f0f0; /* Background color for the circle */
+  display: block;
+  margin-left: 50px;
+  align-items: center;
+}
+
+.navbar-dropdown p {
+  margin-left: 30px;
+  font-weight: bold;
+  align-items: center;
+}
+
+.navbar-dropdown button {
+  background: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 30px;
+}
+
+.navbar-dropdown button:hover {
+  background: #0056b3;
+}
+
+
+
+.navbar-profile-button:focus + .navbar-dropdown,
+.navbar-dropdown:hover {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbar-dropdown a,
+.navbar-dropdown button {
+  display: block;
+  padding: 10px 20px;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  color: black;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1em;
+  transition: background 0.3s, color 0.3s;
+}
+
+.navbar-dropdown a:hover,
+.navbar-dropdown button:hover {
+  background-color: #ff0000;
+  color: white;
+}

@@ -1,0 +1,99 @@
+/* Penghargaan.css */
+.penghargaan {
+  font-family: 'Arial', sans-serif;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #4a90e2, #9013fe);
+  color: white;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+.hero-content p {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+
+.main-content {
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+.penghargaan-section {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.penghargaan-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.awards-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.award-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.award-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.award-image {
+  max-width: 100%;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.award-card h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  color: #4a90e2;
+}
+
+.award-card h4 {
+  font-size: 1.2em;
+  color: #666;
+}
+
+.footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  .awards-cards {
+    flex-direction: column;
+  }
+}

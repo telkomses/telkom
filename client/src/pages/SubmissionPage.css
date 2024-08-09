@@ -1,0 +1,107 @@
+/* Container yang membungkus form dan field */
+.submission-container {
+  max-width: 800px;
+  margin-top: 50px;
+  padding: 100px;
+  background-color: #f9f9f9; /* Tambahkan warna latar belakang */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Tambahkan bayangan */
+  border-radius: 8px; /* Tambahkan radius border */
+  margin-left: 600px;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input text dan dropdown */
+input[type="text"],
+select {
+  width: 100%; /* Memastikan lebar sama */
+  box-sizing: border-box; /* Memastikan padding dan border dihitung dalam lebar total */
+  padding: 10px; /* Padding untuk kenyamanan input */
+  border: 1px solid #ccc; /* Border untuk gaya */
+  border-radius: 4px; /* Sudut border yang melengkung */
+  font-size: 16px; /* Ukuran font yang konsisten */
+  height: 40px; /* Tinggi yang sama */
+  margin-bottom: 15px; /* Spasi di bawah field */
+}
+
+/* Input file */
+input[type="file"] {
+  width: 100%; /* Memastikan lebar sama */
+  box-sizing: border-box; /* Memastikan padding dan border dihitung dalam lebar total */
+  padding: 10px; /* Padding untuk kenyamanan input */
+  border: 1px solid #ccc; /* Border untuk gaya */
+  border-radius: 4px; /* Sudut border yang melengkung */
+  font-size: 16px; /* Ukuran font yang konsisten */
+  height: 40px; /* Tinggi yang sama */
+  margin-bottom: 15px; /* Spasi di bawah field */
+  cursor: pointer; /* Menambahkan kursor pointer untuk interaktivitas */
+  background-color: #fff; /* Warna latar belakang untuk input file */
+  display: flex;
+  align-items: center;
+}
+
+/* Menambahkan gaya khusus untuk input file jika diperlukan */
+input[type="file"]::-webkit-file-upload-button {
+  border: none;
+  color: #007bff;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Tombol */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Hover efek pada tombol */
+button:hover {
+  background-color: #0056b3;
+}
+
+/* V4 Checklist */
+.v4-checklist {
+  margin-bottom: 15px;
+}
+
+/* Container untuk checkbox menggunakan grid */
+.v4-checklist-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dua kolom */
+  gap: 10px; /* Spasi antara kolom dan baris */
+}
+
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkbox-group input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.checkbox-group label {
+  font-size: 16px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #f1f1f1;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}

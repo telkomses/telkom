@@ -1,0 +1,44 @@
+.data-unit-bisnis {
+  padding: 20px;
+}
+
+.unit-bisnis-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.unit-bisnis-table th, .unit-bisnis-table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.unit-bisnis-table th {
+  background-color: #ff0000;
+}
+
+.add-unit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.add-unit input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.add-unit button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-unit button:hover {
+  background-color: #0056b3;
+}
